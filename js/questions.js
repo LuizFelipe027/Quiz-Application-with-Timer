@@ -2,122 +2,110 @@
 let listQuestions = [
     {
     numb: 1,
-    question: "What does HTML stand for?",
-    problem: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-    answer: "Hyper Text Markup Language",
+    question: "Qual registro ideal para ser visto como prioritário??",
+    problem: "Sabendo que analises devem ser feitas antes da compra para o estoque. Vamos imaginar que seja uma organização de autopeça.",
+    answer: "Ano anterior",
     options: [
-      "Hyper Text Preprocessor",
-      "Hyper Text Markup Language",
-      "Hyper Text Multiple Language",
-      "Hyper Tool Multi Language"
+      "Ano anterior",
+      "Últimos 6 meses",
+      "Períodos sazonais",
+      "Média de consumo"
     ]
   },
     {
     numb: 2,
-    question: "What does CSS stand for?",
-    problem: "TESTE TESTE TESTE TESTE",
-    answer: "Cascading Style Sheet",
+    question: "Qual registro ideal para ser visto como prioritário?",
+    problem: "Sabendo que analises devem ser feitas antes da compra para o estoque. Vamos imaginar que seja uma organização de autopeça.",
+    answer: "Ano anterior",
     options: [
-      "Common Style Sheet",
-      "Colorful Style Sheet",
-      "Computer Style Sheet",
-      "Cascading Style Sheet"
+      "Ano anterior",
+      "Últimos 6 meses",
+      "Períodos sazonais",
+      "Média de consumo"
     ]
   },
     {
     numb: 3,
-    question: "What does PHP stand for?",
-    problem: "TESTE TESTE TESTE TESTE",
-    answer: "Hypertext Preprocessor",
+    question: "Qual registro ideal para ser visto como prioritário?",
+    problem: "Sabendo que analises devem ser feitas antes da compra para o estoque. Vamos imaginar que seja uma organização de autopeça.",
+    answer: "Ano anterior",
     options: [
-      "Hypertext Preprocessor",
-      "Hypertext Programming",
-      "Hypertext Preprogramming",
-      "Hometext Preprocessor"
+      "Ano anterior",
+      "Últimos 6 meses",
+      "Períodos sazonais",
+      "Média de consumo"
     ]
   },
     {
     numb: 4,
-    question: "What does SQL stand for?",
-    problem: "TESTE TESTE TESTE TESTE",
-    answer: "Structured Query Language",
+    question: "Qual registro ideal para ser visto como prioritário?",
+    problem: "Sabendo que analises devem ser feitas antes da compra para o estoque. Vamos imaginar que seja uma organização de autopeça.",
+    answer: "Ano anterior",
     options: [
-      "Stylish Question Language",
-      "Stylesheet Query Language",
-      "Statement Question Language",
-      "Structured Query Language"
+      "Ano anterior",
+      "Últimos 6 meses",
+      "Períodos sazonais",
+      "Média de consumo"
     ]
   },
     {
     numb: 5,
-    question: "What does XML stand for?",
-    problem: "TESTE TESTE TESTE TESTE",
-    answer: "eXtensible Markup Language",
+    question: "Qual registro ideal para ser visto como prioritário?",
+    problem: "Sabendo que analises devem ser feitas antes da compra para o estoque. Vamos imaginar que seja uma organização de autopeça.",
+    answer: "Ano anterior",
     options: [
-      "eXtensible Markup Language",
-      "eXecutable Multiple Language",
-      "eXTra Multi-Program Language",
-      "eXamine Multiple Language"
+      "Ano anterior",
+      "Últimos 6 meses",
+      "Períodos sazonais",
+      "Média de consumo"
     ]
   },
     {
-   numb: 6,
-    question: "What does HTML stand for?",
-    problem: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-    answer: "Hyper Text Markup Language",
+    numb: 6,
+    question: "Qual registro ideal para ser visto como prioritário?",
+    problem: "Sabendo que analises devem ser feitas antes da compra para o estoque. Vamos imaginar que seja uma organização de autopeça.",
+    answer: "Ano anterior",
     options: [
-      "Hyper Text Preprocessor",
-      "Hyper Text Markup Language",
-      "Hyper Text Multiple Language",
-      "Hyper Tool Multi Language"
+      "Ano anterior",
+      "Últimos 6 meses",
+      "Períodos sazonais",
+      "Média de consumo"
     ]
   },
     {
     numb: 7,
-    question: "What does CSS stand for?",
-    problem: "TESTE TESTE TESTE TESTE",
-    answer: "Cascading Style Sheet",
+    question: "Qual registro ideal para ser visto como prioritário?",
+    problem: "Sabendo que analises devem ser feitas antes da compra para o estoque. Vamos imaginar que seja uma organização de autopeça.",
+    answer: "Ano anterior",
     options: [
-      "Common Style Sheet",
-      "Colorful Style Sheet",
-      "Computer Style Sheet",
-      "Cascading Style Sheet"
+      "Ano anterior",
+      "Últimos 6 meses",
+      "Períodos sazonais",
+      "Média de consumo"
     ]
   },
     {
     numb: 8,
-    question: "What does PHP stand for?",
-    problem: "TESTE TESTE TESTE TESTE",
-    answer: "Hypertext Preprocessor",
+    question: "Qual registro ideal para ser visto como prioritário?",
+    problem: "Sabendo que analises devem ser feitas antes da compra para o estoque. Vamos imaginar que seja uma organização de autopeça.",
+    answer: "Ano anterior",
     options: [
-      "Hypertext Preprocessor",
-      "Hypertext Programming",
-      "Hypertext Preprogramming",
-      "Hometext Preprocessor"
+      "Ano anterior",
+      "Últimos 6 meses",
+      "Períodos sazonais",
+      "Média de consumo"
     ]
   },
     {
     numb: 9,
-    question: "What does SQL stand for?",
-    problem: "TESTE TESTE TESTE TESTE",
-    answer: "Structured Query Language",
+    question: "Qual registro ideal para ser visto como prioritário?",
+    problem: "Sabendo que analises devem ser feitas antes da compra para o estoque. Vamos imaginar que seja uma organização de autopeça.",
+    answer: "Ano anterior",
     options: [
-      "Stylish Question Language",
-      "Stylesheet Query Language",
-      "Statement Question Language",
-      "Structured Query Language"
-    ]
-  },
-    {
-    numb: 10,
-    question: "What does XML stand for?",
-    problem: "TESTE TESTE TESTE TESTE",
-    answer: "eXtensible Markup Language",
-    options: [
-      "eXtensible Markup Language",
-      "eXecutable Multiple Language",
-      "eXTra Multi-Program Language",
-      "eXamine Multiple Language"
+      "Ano anterior",
+      "Últimos 6 meses",
+      "Períodos sazonais",
+      "Média de consumo"
     ]
   },
 ];
