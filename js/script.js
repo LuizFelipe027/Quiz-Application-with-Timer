@@ -12,6 +12,7 @@ const timeCount = document.querySelector(".timer .timer_sec");
 
 let questions = []
 let totalQuestions = 7  
+let posRandomResp = [];
 
 // if startQuiz button clicked
 start_btn.onclick = () => {
@@ -30,7 +31,7 @@ continue_btn.onclick = () => {
     createQuestion();
     showQuetions(0); //calling showQestions function
     queCounter(1); //passing 1 parameter to queCounter
-    startTimer(15); //calling startTimer function
+    startTimer(30); //calling startTimer function
     startTimerLine(0); //calling startTimerLine function
 }
 
@@ -61,7 +62,7 @@ restart_quiz.onclick = () => {
     clearInterval(counterLine); //clear counterLine
     startTimer(timeValue); //calling startTimer function
     startTimerLine(widthValue); //calling startTimerLine function
-    timeText.textContent = "Time Left"; //change the text of timeText to Time Left
+    timeText.textContent = "Tempo: "; //change the text of timeText to Time Left
     next_btn.classList.remove("show"); //hide the next button
 }
 
@@ -84,7 +85,7 @@ next_btn.onclick = () => {
         clearInterval(counterLine); //clear counterLine
         startTimer(timeValue); //calling startTimer function
         startTimerLine(widthValue); //calling startTimerLine function
-        timeText.textContent = "Time Left"; //change the timeText to Time Left
+        timeText.textContent = "Tempo: "; //change the timeText to Time Left
         next_btn.classList.remove("show"); //hide the next button
     } else {
         clearInterval(counter); //clear counter
@@ -100,10 +101,10 @@ function showQuetions(index) {
     //creating a new span and div tag for question and option and passing the value using array index
     let que_tag = '<span>' + (index+1) + ". " + questions[index].question + '</span>';
     let prob_tag = '<p>' + questions[index].problem + '</p>';
-    let option_tag = '<div class="option"><span>' + questions[index].options[0] + '</span></div>'
-        + '<div class="option"><span>' + questions[index].options[1] + '</span></div>'
-        + '<div class="option"><span>' + questions[index].options[2] + '</span></div>'
-        + '<div class="option"><span>' + questions[index].options[3] + '</span></div>';
+    let option_tag = '<div class="option"><span>' + questions[index].options[posRandomResp[0]] + '</span></div>'
+        + '<div class="option"><span>' + questions[index].options[posRandomResp[1]] + '</span></div>'
+        + '<div class="option"><span>' + questions[index].options[posRandomResp[2]] + '</span></div>'
+        + '<div class="option"><span>' + questions[index].options[posRandomResp[3]] + '</span></div>';
     que_text.innerHTML = que_tag; //adding new span tag inside que_tag
     option_list.innerHTML = option_tag; //adding new div tag inside option_tag
     prob_text.innerHTML = prob_tag;
@@ -131,18 +132,18 @@ function optionSelected(answer) {
         userScore += 1; //upgrading score value with 1
         answer.classList.add("correct"); //adding green color to correct selected option
         answer.insertAdjacentHTML("beforeend", tickIconTag); //adding tick icon to correct selected option
-        console.log("Correct Answer");
-        console.log("Your correct answers = " + userScore);
+        console.log("Resposta Correta");
+        console.log("Suas respostas corretas = " + userScore);
     } else {
         answer.classList.add("incorrect"); //adding red color to correct selected option
         answer.insertAdjacentHTML("beforeend", crossIconTag); //adding cross icon to correct selected option
-        console.log("Wrong Answer");
+        console.log("Resposta Errada");
 
         for (i = 0; i < allOptions; i++) {
             if (option_list.children[i].textContent == correcAns) { //if there is an option which is matched to an array answer 
                 option_list.children[i].setAttribute("class", "option correct"); //adding green color to matched option
                 option_list.children[i].insertAdjacentHTML("beforeend", tickIconTag); //adding tick icon to matched option
-                console.log("Auto selected correct answer.");
+                console.log("Resposta correta auto-selecionada.");
             }
         }
     }
@@ -159,15 +160,15 @@ function showResult() {
     const scoreText = result_box.querySelector(".score_text");
     if ((userScore / totalQuestions) >= 1) { // if user scored more than 3
         //creating a new span tag and passing the user score number and total question number
-        let scoreTag = '<span>and congrats! 🎉, You got <p>' + userScore + '</p> out of <p>' + questions.length + '</p></span>';
+        let scoreTag = '<span>Parabéns! 🎉, sua pontuação foi <p>' + userScore + '</p> de <p>' + questions.length + '</p></span>';
         scoreText.innerHTML = scoreTag;  //adding new span tag inside score_Text
     }
     else if ((userScore / totalQuestions) >= 0.7) { // if user scored more than 1
-        let scoreTag = '<span>and nice 😎, You got <p>' + userScore + '</p> out of <p>' + questions.length + '</p></span>';
+        let scoreTag = '<span>Muito bom 😎, sua pontuação foi <p>' + userScore + '</p> de <p>' + questions.length + '</p></span>';
         scoreText.innerHTML = scoreTag;
     }
     else { // if user scored less than 1
-        let scoreTag = '<span>and sorry 😐, You got only <p>' + userScore + '</p> out of <p>' + questions.length + '</p></span>';
+        let scoreTag = '<span>Que azar 😐, sua pontuação foi <p>' + userScore + '</p> de <p>' + questions.length + '</p></span>';
         scoreText.innerHTML = scoreTag;
     }
 }
@@ -183,14 +184,14 @@ function startTimer(time) {
         }
         if (time < 0) { //if timer is less than 0
             clearInterval(counter); //clear counter
-            timeText.textContent = "Time Off"; //change the time text to time off
+            timeText.textContent = "Fim do Tempo:"; //change the time text to time off
             const allOptions = option_list.children.length; //getting all option items
             let correcAns = questions[que_count].answer; //getting correct answer from array
             for (i = 0; i < allOptions; i++) {
                 if (option_list.children[i].textContent == correcAns) { //if there is an option which is matched to an array answer
                     option_list.children[i].setAttribute("class", "option correct"); //adding green color to matched option
                     option_list.children[i].insertAdjacentHTML("beforeend", tickIconTag); //adding tick icon to matched option
-                    console.log("Time Off: Auto selected correct answer.");
+                    console.log("Fim do tempo: Resposta correta auto-selecionada.");
                 }
             }
             for (i = 0; i < allOptions; i++) {
@@ -202,7 +203,7 @@ function startTimer(time) {
 }
 
 function startTimerLine(time) {
-    counterLine = setInterval(timer, 29);
+    counterLine = setInterval(timer, 56);
     function timer() {
         time += 1; //upgrading time value with 1
         time_line.style.width = time + "px"; //increasing width of time_line with px by time value
@@ -214,32 +215,34 @@ function startTimerLine(time) {
 
 function queCounter(index) {
     //creating a new span tag and passing the question number and total question
-    let totalQueCounTag = '<span><p>' + index + '</p> of <p>' + questions.length + '</p> Questions</span>';
+    let totalQueCounTag = '<span><p>' + index + '</p> de <p>' + questions.length + '</p> Questões</span>';
     bottom_ques_counter.innerHTML = totalQueCounTag;  //adding new span tag inside bottom_ques_counter
 }
 
 function createQuestion() {
-
     let posRandom = 0;
     let min = 0;
     let max = listQuestions.length - 1;
-    
+    let i = 0
     while (questions.length < totalQuestions) {
-
-        
-       
+    
         posRandom =  Math.floor(Math.random() * (max)) + min;
-        console.log(posRandom)
+
+        posResp = Math.floor(Math.random() * (4) + min)
+       
+        let verifica = posRandomResp.indexOf(posResp)
+        if(verifica === -1){
+            posRandomResp.push(posResp)
+            i++
+        }
 
         let _question = questions.map(function(e) { return e.numb })
+
         //verifica posicao
         let pos = _question.indexOf(posRandom+1)
 
-        if(pos == -1){    
+        if(pos === -1){    
             questions.push(listQuestions[posRandom])
         }
-
     }
-    
-
 }
