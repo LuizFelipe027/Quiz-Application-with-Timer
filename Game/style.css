@@ -389,3 +389,10 @@ footer button.show{
     color: #fff;
     background: #00AFA4;
 }
+
+body {
+    -webkit-user-select: none;
+    -moz-user-select: -moz-none;
+    -ms-user-select: none;
+     user-select: none;
+  }
