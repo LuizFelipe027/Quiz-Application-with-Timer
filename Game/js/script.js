@@ -223,24 +223,21 @@ function createQuestion() {
     let posRandom = 0;
     let min = 0;
     let max = listQuestions.length - 1;
-    let i = 0
     while (questions.length < totalQuestions) {
-    
-        posRandom =  Math.floor(Math.random() * (max)) + min;
 
         posResp = Math.floor(Math.random() * (4) + min)
-       
         let verifica = posRandomResp.indexOf(posResp)
+        console.log(posResp);
         if(verifica === -1){
+            console.log("Entrou. PosResp:", posResp);
+
             posRandomResp.push(posResp)
-            i++
         }
 
+        posRandom =  Math.floor(Math.random() * (max)) + min;
         let _question = questions.map(function(e) { return e.numb })
-
         //verifica posicao
         let pos = _question.indexOf(posRandom+1)
-
         if(pos === -1){    
             questions.push(listQuestions[posRandom])
         }
