@@ -9,6 +9,7 @@ const option_list = document.querySelector(".option_list");
 const time_line = document.querySelector("header .time_line");
 const timeText = document.querySelector(".timer .time_left_txt");
 const timeCount = document.querySelector(".timer .timer_sec");
+const img_conecta = document.querySelector(".cat");
 
 let questions = []
 let totalQuestions = 7  
@@ -28,6 +29,7 @@ exit_btn.onclick = () => {
 continue_btn.onclick = () => {
     info_box.classList.remove("activeInfo"); //hide info box
     quiz_box.classList.add("activeQuiz"); //show quiz box
+    img_conecta.classList.add("some");
     createQuestion();
     showQuetions(0); //calling showQestions function
     queCounter(1); //passing 1 parameter to queCounter
@@ -160,15 +162,15 @@ function showResult() {
     const scoreText = result_box.querySelector(".score_text");
     if ((userScore / totalQuestions) >= 1) { // if user scored more than 3
         //creating a new span tag and passing the user score number and total question number
-        let scoreTag = '<span>Parabéns! 🎉, sua pontuação foi <p>' + userScore + '</p> de <p>' + questions.length + '</p></span>';
+        let scoreTag = '<span>Parabéns! 🎉, sua pontuação foi ' + userScore + ' de ' + questions.length + '!</span>';
         scoreText.innerHTML = scoreTag;  //adding new span tag inside score_Text
     }
     else if ((userScore / totalQuestions) >= 0.7) { // if user scored more than 1
-        let scoreTag = '<span>Muito bom 😎, sua pontuação foi <p>' + userScore + '</p> de <p>' + questions.length + '</p></span>';
+        let scoreTag = '<span>Muito bom 😎, sua pontuação foi ' + userScore + ' de ' + questions.length + '!</span>';
         scoreText.innerHTML = scoreTag;
     }
     else { // if user scored less than 1
-        let scoreTag = '<span>Que azar 😐, sua pontuação foi <p>' + userScore + '</p> de <p>' + questions.length + '</p></span>';
+        let scoreTag = '<span>Que azar 😐, sua pontuação foi ' + userScore + ' de ' + questions.length + '!</span>';
         scoreText.innerHTML = scoreTag;
     }
 }
@@ -184,7 +186,7 @@ function startTimer(time) {
         }
         if (time < 0) { //if timer is less than 0
             clearInterval(counter); //clear counter
-            timeText.textContent = "Fim do Tempo:"; //change the time text to time off
+            timeText.textContent = "Fim do Tempo!"; //change the time text to time off
             const allOptions = option_list.children.length; //getting all option items
             let correcAns = questions[que_count].answer; //getting correct answer from array
             for (i = 0; i < allOptions; i++) {

@@ -1,7 +1,7 @@
 /* importing google fonts */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 *{
-    margin: 0;
+    margin: 0%;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
@@ -16,12 +16,23 @@ body{
     background: #00AFA4;
 }
 
-.img_conecta{
+img {
+    width: auto; 
+    max-height: 100%; 
+    object-fit: contain;
+   }
+   .cat {
     position: absolute;
     top: 20%;
     left: 50%;
-    transform: translate(-50%, -50%);
-}
+    height: 150px;
+    width: auto;
+    transform: translate(-50%, -95%);
+   }
+
+   .cat.some{
+    visibility: hidden;
+   }
 
 .start_btn,
 .info_box,
@@ -57,7 +68,9 @@ body{
 }
 
 .info_box{
-    width: 540px;
+    /* width: 50%; */
+    min-width: 341px;
+    max-width: 540px;
     background: #fff;
     border-radius: 5px;
     transform: translate(-50%, -50%) scale(0.9);
@@ -115,7 +128,8 @@ body{
 }
 
 .quiz_box{
-    width: 550px;
+    min-width: 341px;
+    max-width: 550px;
     background: #fff;
     border-radius: 5px;
     transform: translate(-50%, -50%) scale(0.9);
@@ -125,6 +139,7 @@ body{
 }
 
 .quiz_box header{
+    width: auto;
     position: relative;
     z-index: 2;
     height: 70px;
@@ -138,6 +153,7 @@ body{
 }
 
 .quiz_box header .title{
+    width: auto;
     font-size: 20px;
     font-weight: 600;
 }
@@ -152,7 +168,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 145px;
+    width: auto;
 }
 
 .quiz_box header .timer .time_left_txt{
@@ -262,6 +278,7 @@ section .option_list .option .icon{
 }
 
 footer{
+    margin: 0%;
     height: 60px;
     padding: 0 30px;
     display: flex;
@@ -314,11 +331,12 @@ footer button.show{
 }
 
 .result_box{
+    min-width: 341px;
+    max-width: 450px;
     background: #fff;
     border-radius: 5px;
     display: flex;
     padding: 25px 30px;
-    width: 450px;
     align-items: center;
     flex-direction: column;
     justify-content: center;
@@ -395,4 +413,22 @@ body {
     -moz-user-select: -moz-none;
     -ms-user-select: none;
      user-select: none;
+  }
+
+  @media (min-width: 330px) {
+
+    footer .total_que span{
+        display: flex;
+        user-select: none;
+    }
+    
+    footer .total_que span p{
+        font-weight: 500;
+        padding: 0 5px;
+    }
+    
+    footer .total_que span p:first-child{
+        padding-left: 0px;
+    }
+   
   }
