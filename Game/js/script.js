@@ -12,8 +12,7 @@ const timeCount = document.querySelector(".timer .timer_sec");
 const img_conecta = document.querySelector(".cat");
 
 let questions = []
-let totalQuestions = 7  
-let posRandomResp = [];
+let totalQuestions = 5
 
 // if startQuiz button clicked
 start_btn.onclick = () => {
@@ -64,7 +63,7 @@ restart_quiz.onclick = () => {
     clearInterval(counterLine); //clear counterLine
     startTimer(timeValue); //calling startTimer function
     startTimerLine(widthValue); //calling startTimerLine function
-    timeText.textContent = "Tempo: "; //change the text of timeText to Time Left
+    // timeText.textContent = "Tempo: "; //change the text of timeText to Time Left
     next_btn.classList.remove("show"); //hide the next button
 }
 
@@ -87,7 +86,7 @@ next_btn.onclick = () => {
         clearInterval(counterLine); //clear counterLine
         startTimer(timeValue); //calling startTimer function
         startTimerLine(widthValue); //calling startTimerLine function
-        timeText.textContent = "Tempo: "; //change the timeText to Time Left
+        //timeText.textContent = "Tempo: "; //change the timeText to Time Left
         next_btn.classList.remove("show"); //hide the next button
     } else {
         clearInterval(counter); //clear counter
@@ -103,10 +102,10 @@ function showQuetions(index) {
     //creating a new span and div tag for question and option and passing the value using array index
     let que_tag = '<span>' + (index+1) + ". " + questions[index].question + '</span>';
     let prob_tag = '<p>' + questions[index].problem + '</p>';
-    let option_tag = '<div class="option"><span>' + questions[index].options[posRandomResp[0]] + '</span></div>'
-        + '<div class="option"><span>' + questions[index].options[posRandomResp[1]] + '</span></div>'
-        + '<div class="option"><span>' + questions[index].options[posRandomResp[2]] + '</span></div>'
-        + '<div class="option"><span>' + questions[index].options[posRandomResp[3]] + '</span></div>';
+    let option_tag = '<div class="option"><span>' + questions[index].options[0] + '</span></div>'
+        + '<div class="option"><span>' + questions[index].options[1] + '</span></div>'
+        + '<div class="option"><span>' + questions[index].options[2] + '</span></div>'
+        + '<div class="option"><span>' + questions[index].options[3] + '</span></div>';
     que_text.innerHTML = que_tag; //adding new span tag inside que_tag
     option_list.innerHTML = option_tag; //adding new div tag inside option_tag
     prob_text.innerHTML = prob_tag;
@@ -186,7 +185,7 @@ function startTimer(time) {
         }
         if (time < 0) { //if timer is less than 0
             clearInterval(counter); //clear counter
-            timeText.textContent = "Fim do Tempo!"; //change the time text to time off
+            //timeText.textContent = "Fim do Tempo!"; //change the time text to time off
             const allOptions = option_list.children.length; //getting all option items
             let correcAns = questions[que_count].answer; //getting correct answer from array
             for (i = 0; i < allOptions; i++) {
@@ -226,22 +225,27 @@ function createQuestion() {
     let min = 0;
     let max = listQuestions.length - 1;
     while (questions.length < totalQuestions) {
-
-        posResp = Math.floor(Math.random() * (4) + min)
-        let verifica = posRandomResp.indexOf(posResp)
-        console.log(posResp);
-        if(verifica === -1){
-            console.log("Entrou. PosResp:", posResp);
-
-            posRandomResp.push(posResp)
-        }
-
         posRandom =  Math.floor(Math.random() * (max)) + min;
         let _question = questions.map(function(e) { return e.numb })
         //verifica posicao
         let pos = _question.indexOf(posRandom+1)
-        if(pos === -1){    
+        if(pos === -1){   
+            listQuestions[posRandom].options = shuffle(listQuestions[posRandom].options)
             questions.push(listQuestions[posRandom])
         }
     }
+}
+
+function shuffle(array) {
+    let m = array.length, t, i;
+    // While there remain elements to shuffle…
+    while (m) {
+        // Pick a remaining element…
+        i = Math.floor(Math.random() * m--);
+        // And swap it with the current element.
+        t = array[m];
+        array[m] = array[i];
+        array[i] = t;
+    }
+    return array;
 }
